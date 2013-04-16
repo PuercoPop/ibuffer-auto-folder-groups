@@ -4,10 +4,11 @@
 
 (setq ibuffer-afg-ignore-directories '("." ".." ".DS_Store"))
 
-(defun ibuffer-afg-folder-in-ibuffer-save-group (folder groups)
-  (lexical-let ((match nil))
+(defun ibuffer-afg-folder-in-ibuffer-save-group (group groups)
+  (let ((match nil))
     (dolist (group (cdr (car groups))
-      (when (equal folder (car group)) (setq match t)))
+      (when (equal folder (car group))
+        (setq match t)))
     match)))
 
 ;; (dolist (dir (directory-files "~/Projects/"))
